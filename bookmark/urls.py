@@ -15,23 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
 from bookmark.views import BookmarkLV, BookmarkDV
 
-from django.views.generic import ListView, DetailView
-from bookmark.models import Bookmark
-
+app_name='bookmark'
 urlpatterns = [
-    path('admin/', admin.site.urls),
 
     # class-based views
-
-    path('bookmark/', include('bookmark.urls')),
-    path('blog/', include('blog.urls')),
-    # path('bookmark/', BookmarkLV.as_view(), name='index'),
-    # path('bookmark/<int:pk>/', BookmarkDV.as_view(), name='detail'),
-
-    # # urls with view definition
-    # path('bookmark/', ListView.as_view(model=Bookmark), name='index'),
-    # path('bookmark/<int:pk>/', DetailView.as_view(model=Bookmark), name='detail'),
+    path('', BookmarkLV.as_view(), name='index'),
+    path('<int:pk>/', BookmarkDV.as_view(), name='detail'),
 ]
