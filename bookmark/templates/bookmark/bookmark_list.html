@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Django Bookmark List</title>
@@ -13,7 +13,6 @@
         {% for bookmark in object_list %}
             <li><a href="{% url 'detail' bookmark.id %}">{{ bookmark }}</a></li>
         {% endfor %}
-        <li><a href = "#">야후</a></li>
     </ul>
 
 </div>
